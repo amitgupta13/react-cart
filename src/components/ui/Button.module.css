@@ -1,0 +1,73 @@
+.content {
+  display: flex;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  align-items: center;
+  border-width: 1px;
+  justify-content: center;
+}
+
+.primary {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border-color: #3b82f6;
+}
+
+.secondary {
+  background-color: #111827;
+  color: #ffffff;
+}
+
+.success {
+  background-color: #10b981;
+  color: #ffffff;
+  border-color: #10b981;
+}
+
+.warning {
+  background-color: #fbbf24;
+  color: #ffffff;
+  border-color: #fbbf24;
+}
+
+.danger {
+  background-color: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
+.rounded {
+  border-radius: 9999px;
+}
+
+.outline {
+  background-color: #ffffff;
+}
+
+.outline-primary {
+  color: #3b82f6;
+}
+
+.outline-secondary {
+  color: #111827;
+}
+
+.outline-success {
+  color: #10b981;
+}
+
+.outline-warning {
+  color: #fbbf24;
+}
+
+.outline-danger {
+  color: #ef4444;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

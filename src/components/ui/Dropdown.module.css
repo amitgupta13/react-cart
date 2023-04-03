@@ -1,0 +1,27 @@
+.option:hover {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.dropdown-main {
+  position: relative;
+  width: 12rem;
+}
+
+.dropdown-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+}
