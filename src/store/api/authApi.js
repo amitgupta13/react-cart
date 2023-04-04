@@ -23,8 +23,19 @@ export const authApi = reauthApi("auth").injectEndpoints({
         body,
       }),
     }),
+    changePassword: builder.mutation({
+      query: (body) => ({
+        url: "/users/updatepassword",
+        method: "PUT",
+        body,
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useRefreshMutation, useLogoutMutation } =
-  authApi;
+export const {
+  useLoginMutation,
+  useRefreshMutation,
+  useLogoutMutation,
+  useChangePasswordMutation,
+} = authApi;

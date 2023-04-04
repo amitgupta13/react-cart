@@ -20,4 +20,5 @@ export {
   useLoginMutation,
   useRefreshMutation,
   useLogoutMutation,
+  useChangePasswordMutation,
 } from "./api/authApi";
