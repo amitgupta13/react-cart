@@ -76,3 +76,7 @@ svg.active {
 .nav-icon {
   position: relative;
 }
+
+.option {
+  cursor: pointer;
+}

@@ -41,3 +41,10 @@
 .auth-button:disabled {
   opacity: 0.5;
 }
+
+.error {
+  font-size: 12px;
+  padding: 3px;
+  color: red;
+  display: block;
+}

@@ -8,7 +8,7 @@ import Input from "../components/ui/Input";
 import { authMode, signinFormInputs } from "./formStructure";
 
 export default function Signin() {
-  const [doLogin] = useLoginMutation();
+  const [doLogin, result] = useLoginMutation();
   const dispatch = useDispatch();
   const [values, setValues] = useState({
     email: "",
@@ -77,6 +77,9 @@ export default function Signin() {
           >
             Sign in
           </Button>
+          {result.isError && (
+            <p className={classes.error}>{result.error?.data?.error}</p>
+          )}
         </div>
       </form>
     </Card>
