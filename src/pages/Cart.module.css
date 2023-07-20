@@ -9,5 +9,12 @@
 }
 
 .card-right {
-  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
 }

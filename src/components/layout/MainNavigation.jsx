@@ -25,6 +25,11 @@ export default function MainNavigation() {
       value: "changePassword",
       route: "/changepassword",
     },
+    {
+      label: "Orders",
+      value: "orders",
+      route: "/orders",
+    },
   ];
 
   const renderedOptions = options.map((option) => {
@@ -34,6 +39,7 @@ export default function MainNavigation() {
         onClick={() => handleOptionClick(option)}
         key={option.value}
       >
+        <hr />
         {option.label}
       </div>
     );
@@ -66,7 +72,10 @@ export default function MainNavigation() {
                   ref={elementRef}
                   className={className(classes.pointer, classes["nav-icon"])}
                 >
-                  <BsFillGearFill onClick={toggleDropdown} />
+                  <BsFillGearFill
+                    className={classes.svg}
+                    onClick={toggleDropdown}
+                  />
                   {isOpen && (
                     <div className={classes["nav-dropdown-options"]}>
                       {renderedOptions}
@@ -79,7 +88,7 @@ export default function MainNavigation() {
                   onClick={() => navigate("/cart")}
                   className={className(classes.pointer, classes["cart-icon"])}
                 >
-                  <BsCartFill />
+                  <BsCartFill className={classes.svg} />
 
                   {data?.items.length ? (
                     <div className={classes["cart-count"]}>

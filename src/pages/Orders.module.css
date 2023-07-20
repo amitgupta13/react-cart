@@ -1,0 +1,14 @@
+.order {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.book {
+  padding: 10px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

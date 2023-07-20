@@ -45,6 +45,7 @@ export default function Cart() {
             <h3>Quantity - {item.quantity}</h3>
           </div>
           <div className={classes["card-right"]}>
+            <img className={classes.image} src={item.book.url} alt="" />
             <Button onClick={() => removeFromCartHandler(item)} danger>
               Remove from cart
             </Button>

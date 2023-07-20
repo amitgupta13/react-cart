@@ -59,7 +59,10 @@ export default function ShoppingList() {
   const renderFn = (item) => {
     return (
       <div className={classes["grid-item"]}>
-        <h1>{item.title}</h1>
+        <div className={classes.header}>
+          <h1>{item.title}</h1>
+          <img className={classes.image} src={item.url} alt="" />
+        </div>
         <h4>Authors - {item.authors.join(", ")}</h4>
         <h4>Price - ${item.price}</h4>
         <Button onClick={() => addToCartHandler(item)} primary>

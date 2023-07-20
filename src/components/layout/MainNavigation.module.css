@@ -50,15 +50,15 @@
   color: white;
 }
 
-svg {
+.svg {
   text-decoration: none;
   font-size: 1.5rem;
   color: #fcb8d2;
 }
 
-svg:hover,
-svg:active,
-svg.active {
+.svg:hover,
+.svg:active,
+.svg.active {
   color: white;
 }
 

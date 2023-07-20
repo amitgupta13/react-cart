@@ -12,3 +12,14 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.image {
+  width: 100px;
+  height: 100px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
