@@ -77,6 +77,24 @@ svg.active {
   position: relative;
 }
 
-.option {
+.cart-icon {
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  background-color: white;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 1;
+  border-radius: 50%;
+  border: 2px solid red;
+  font-weight: bold;
+}
+
+.pointer {
   cursor: pointer;
 }

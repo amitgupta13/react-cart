@@ -1,0 +1,11 @@
+.checkout {
+  padding: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+button:disabled {
+  opacity: 0.5;
+}

@@ -1,3 +1,47 @@
+import { regex } from "../constants/appConstants";
+
+export const checkoutForm = [
+  {
+    id: 1,
+    name: "address",
+    type: "textarea",
+    placeholder: "Address...",
+    errorMessage: "Enter a valid address",
+    label: "Address",
+    required: true,
+  },
+  {
+    id: 2,
+    name: "cardnumber",
+    type: "text",
+    placeholder: "xxxx-xxxx-xxxx",
+    errorMessage: "Enter a valid card number",
+    label: "Card Number",
+    pattern: "[0-9]+",
+    required: true,
+  },
+  {
+    id: 3,
+    name: "cvv",
+    type: "text",
+    placeholder: "xxx",
+    errorMessage: "Enter a valid cvv",
+    label: "CVV",
+    pattern: "[0-9]+",
+    required: true,
+  },
+  {
+    id: 4,
+    name: "expiry",
+    type: "text",
+    placeholder: "09/12",
+    label: "Card Expiry",
+    errorMessage: "Enter a valid card expiry",
+    pattern: regex.cardExpiry,
+    required: true,
+  },
+];
+
 export const signinFormInputs = [
   {
     id: 1,

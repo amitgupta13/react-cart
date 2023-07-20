@@ -1,0 +1,20 @@
+.pagination {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-element {
+  width: 32px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.center {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}

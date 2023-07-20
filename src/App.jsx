@@ -6,6 +6,9 @@ import Signup from "./pages/Signup";
 import RequireAuth from "./components/layout/RequireAuth";
 import { useRefresh } from "./hooks/useRefresh";
 import ChangePassword from "./pages/ChangePassword";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import Orders from "./pages/Orders";
 
 export default function App() {
   useRefresh();
@@ -21,6 +24,9 @@ export default function App() {
         {/* protected routes */}
         <Route element={<RequireAuth authRequired={true} />}>
           <Route path="/changepassword" element={<ChangePassword />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/orders" element={<Orders />} />
         </Route>
       </Route>
     </Routes>

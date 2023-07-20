@@ -1,0 +1,13 @@
+.cart-item {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card-right {
+  align-self: flex-end;
+}

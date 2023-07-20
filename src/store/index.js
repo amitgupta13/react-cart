@@ -3,17 +3,20 @@ import { setCredentials, logOut, authReducer } from "./slices/authSlice";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { authApi } from "./api/authApi";
 import { booksApi } from "./api/booksApi";
+import { cartApi } from "./api/cartApi";
 
 const store = configureStore({
   reducer: {
     loginStatus: authReducer,
     [authApi.reducerPath]: authApi.reducer,
     [booksApi.reducerPath]: booksApi.reducer,
+    [cartApi.reducerPath]: cartApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
       .concat(authApi.middleware)
-      .concat(booksApi.middleware),
+      .concat(booksApi.middleware)
+      .concat(cartApi.middleware),
 });
 
 setupListeners(store.dispatch);
@@ -28,3 +31,10 @@ export {
 } from "./api/authApi";
 
 export { useGetBooksQuery } from "./api/booksApi";
+
+export {
+  useGetCartQuery,
+  useAddToCartMutation,
+  useAddOrderMutation,
+  useGetOrdersQuery,
+} from "./api/cartApi";

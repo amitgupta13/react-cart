@@ -1,9 +1,11 @@
 import classes from "./MainNavigation.module.css";
 import { Link } from "react-router-dom";
-import { BsFillGearFill } from "react-icons/bs";
+import { BsFillGearFill, BsCartFill } from "react-icons/bs";
 import { useNavSettings } from "../../hooks/useNavSettings";
 import { useLogout } from "../../hooks/useLogout";
 import { useNavigate } from "react-router-dom";
+import { useGetCartQuery } from "../../store";
+import className from "classnames";
 
 export default function MainNavigation() {
   const navigate = useNavigate();
@@ -15,6 +17,7 @@ export default function MainNavigation() {
   };
 
   const { logout, isLoggedIn } = useLogout();
+  const { data } = useGetCartQuery({}, { skip: !isLoggedIn });
 
   const options = [
     {
@@ -55,17 +58,37 @@ export default function MainNavigation() {
           )}
           {isLoggedIn && (
             <>
-              <li onClick={logout}>
+              <li classes={classes.pointer} onClick={logout}>
                 <Link to="/signin">Logout</Link>
               </li>
               <li>
-                <div ref={elementRef} className={classes["nav-icon"]}>
+                <div
+                  ref={elementRef}
+                  className={className(classes.pointer, classes["nav-icon"])}
+                >
                   <BsFillGearFill onClick={toggleDropdown} />
                   {isOpen && (
                     <div className={classes["nav-dropdown-options"]}>
                       {renderedOptions}
                     </div>
                   )}
+                </div>
+              </li>
+              <li>
+                <div
+                  onClick={() => navigate("/cart")}
+                  className={className(classes.pointer, classes["cart-icon"])}
+                >
+                  <BsCartFill />
+
+                  {data?.items.length ? (
+                    <div className={classes["cart-count"]}>
+                      {data?.items.reduce(
+                        (acc, item) => acc + item.quantity,
+                        0
+                      )}
+                    </div>
+                  ) : null}
                 </div>
               </li>
             </>

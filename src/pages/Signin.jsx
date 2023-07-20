@@ -1,4 +1,3 @@
-import { useRef, useState } from "react";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import classes from "./Signin.module.css";
@@ -6,11 +5,13 @@ import { setCredentials, useLoginMutation } from "../store";
 import { useDispatch } from "react-redux";
 import Input from "../components/ui/Input";
 import { authMode, signinFormInputs } from "./formStructure";
+import { useFormState } from "../hooks/useFormState";
 
 export default function Signin() {
   const [doLogin, result] = useLoginMutation();
   const dispatch = useDispatch();
-  const [values, setValues] = useState({
+
+  const { values, onChange, formRef } = useFormState({
     email: "",
     mobile: "",
     password: "",
@@ -24,8 +25,6 @@ export default function Signin() {
       : true
   );
 
-  const formRef = useRef();
-
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     const data = await doLogin({
@@ -38,13 +37,6 @@ export default function Signin() {
     dispatch(setCredentials(data));
     formRef.current.reset();
   };
-
-  const onChange = (e) =>
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-      valid: formRef.current.checkValidity(),
-    });
 
   return (
     <Card>
