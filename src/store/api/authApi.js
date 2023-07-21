@@ -9,6 +9,13 @@ export const authApi = reauthApi("auth").injectEndpoints({
         body: credentials,
       }),
     }),
+    signup: builder.mutation({
+      query: (body) => ({
+        url: "/users/signup",
+        method: "POST",
+        body,
+      }),
+    }),
     refresh: builder.mutation({
       query: (body) => ({
         url: "/users/token",
@@ -38,4 +45,5 @@ export const {
   useRefreshMutation,
   useLogoutMutation,
   useChangePasswordMutation,
+  useSignupMutation,
 } = authApi;

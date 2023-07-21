@@ -2,7 +2,13 @@ import { useState } from "react";
 import classes from "./Input.module.css";
 import classNames from "classnames";
 
-export default function Input({ label, errorMessage, id, ...rest }) {
+export default function Input({
+  label,
+  errorMessage,
+  id,
+  disableDefaultStyle,
+  ...rest
+}) {
   const [focused, setFocused] = useState(false);
   const handleFocus = (e) => setFocused(true);
 
@@ -15,7 +21,10 @@ export default function Input({ label, errorMessage, id, ...rest }) {
           [classes.formInput]: true,
         };
 
-  let aggregateClasses = classNames(rest.className, defaultClass);
+  let aggregateClasses = classNames(
+    rest.className,
+    disableDefaultStyle ? null : defaultClass
+  );
 
   return (
     <div className={aggregateClasses}>

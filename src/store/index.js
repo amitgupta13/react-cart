@@ -4,10 +4,12 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { authApi } from "./api/authApi";
 import { booksApi } from "./api/booksApi";
 import { cartApi } from "./api/cartApi";
+import { booksReducer } from "./slices/booksSlice";
 
 const store = configureStore({
   reducer: {
     loginStatus: authReducer,
+    booksApi: booksReducer,
     [authApi.reducerPath]: authApi.reducer,
     [booksApi.reducerPath]: booksApi.reducer,
     [cartApi.reducerPath]: cartApi.reducer,
@@ -22,6 +24,8 @@ const store = configureStore({
 setupListeners(store.dispatch);
 
 export { store, setCredentials, logOut, authReducer };
+
+export * from "./thunks/fetchBooks";
 
 export {
   useLoginMutation,
