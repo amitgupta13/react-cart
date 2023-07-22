@@ -16,18 +16,18 @@ label {
   color: gray;
 }
 
-span {
+.error {
   font-size: 12px;
   padding: 3px;
   color: red;
   display: none;
 }
 
-input:invalid[focused="true"] {
+input[focused="true"][valid="false"] {
   border: 1px solid red;
 }
 
-input:invalid[focused="true"] ~ span {
+input[focused="true"][valid="false"] ~ .error {
   display: block;
 }
 

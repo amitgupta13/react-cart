@@ -3,6 +3,7 @@ import Card from "../components/ui/Card";
 import classes from "./Orders.module.css";
 import { status } from "../constants/appConstants";
 import Accordion from "../components/ui/Accordian";
+import book from "../images/book1.jpg";
 
 export default function Orders() {
   const { data, isFetching, error } = useGetOrdersQuery();
@@ -25,7 +26,7 @@ export default function Orders() {
                 <h3>Price - {item.book.price}</h3>
                 <h3>Quantity - {item.quantity}</h3>
               </div>
-              <img className={classes.image} src={item.book.url} alt="" />
+              <img className={classes.image} src={book} alt="" />
             </div>
           </div>
         </Card>

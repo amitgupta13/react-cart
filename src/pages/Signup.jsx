@@ -18,11 +18,11 @@ export default function Signup() {
     email: "",
     mobile: "",
     password: "",
-    valid: false,
   });
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+    if (!formRef.current.checkValidity()) return;
     const data = await doSignup(values).unwrap();
     localStorage.setItem("accessToken", data?.accessToken);
     localStorage.setItem("refreshToken", data?.refreshToken);
@@ -43,11 +43,7 @@ export default function Signup() {
               onChange={onChange}
             />
           ))}
-          <Button
-            disabled={!values.valid}
-            className={classes["auth-button"]}
-            primary
-          >
+          <Button className={classes["auth-button"]} primary>
             Sign in
           </Button>
           {result.isError && (

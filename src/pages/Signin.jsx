@@ -16,7 +16,6 @@ export default function Signin() {
     mobile: "",
     password: "",
     type: "email",
-    valid: false,
   });
 
   const inputs = signinFormInputs.filter((inp) =>
@@ -27,6 +26,7 @@ export default function Signin() {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+    if (!formRef.current.checkValidity()) return;
     const data = await doLogin({
       [values.type]: values.type === "email" ? values.email : values.mobile,
       password: values.password,
@@ -62,11 +62,7 @@ export default function Signin() {
               />
             ))}
           </div>
-          <Button
-            disabled={!values.valid}
-            className={classes["auth-button"]}
-            primary
-          >
+          <Button className={classes["auth-button"]} primary>
             Sign in
           </Button>
           {result.isError && (

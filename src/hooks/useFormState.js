@@ -8,7 +8,6 @@ export function useFormState(initialState) {
     setValues({
       ...values,
       [e.target.name]: e.target.value,
-      valid: formRef.current.checkValidity(),
     });
 
   return {

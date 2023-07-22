@@ -14,7 +14,7 @@ export const priceRange = [
     type: "number",
     label: "MAX",
     placeholder: "00",
-    pattern: "[0-9]+",
+    expression: "[0-9]+",
   },
 ];
 
@@ -35,7 +35,7 @@ export const checkoutForm = [
     placeholder: "xxxx-xxxx-xxxx",
     errorMessage: "Enter a valid card number",
     label: "Card Number",
-    pattern: "[0-9]+",
+    expression: "[0-9]+",
     required: true,
   },
   {
@@ -45,7 +45,7 @@ export const checkoutForm = [
     placeholder: "xxx",
     errorMessage: "Enter a valid cvv",
     label: "CVV",
-    pattern: "[0-9]+",
+    expression: regex.cvv,
     required: true,
   },
   {
@@ -55,7 +55,7 @@ export const checkoutForm = [
     placeholder: "09/12",
     label: "Card Expiry",
     errorMessage: "Enter a valid card expiry",
-    pattern: regex.cardExpiry,
+    expression: regex.cardExpiry,
     required: true,
   },
 ];
@@ -94,12 +94,14 @@ export const signupFormInputs = [
     type: "text",
     placeholder: "124-245-896",
     label: "Mobile",
-    pattern: "[0-9]+",
+    errorMessage: "Please enter a valid mobile",
+    expression: regex.mobile,
   },
   {
-    id: 3,
+    id: 5,
     name: "password",
     type: "password",
+    expression: regex.password,
     placeholder: "Password",
     errorMessage:
       "Password should be at least 8 characters and have 1 uppercase, 1 lowercase, a number and a special character.",
@@ -124,7 +126,8 @@ export const signinFormInputs = [
     type: "text",
     placeholder: "124-245-896",
     label: "Mobile",
-    pattern: "[0-9]+",
+    errorMessage: "Please enter a valid mobile",
+    expression: regex.mobile,
   },
   {
     id: 3,
@@ -134,6 +137,7 @@ export const signinFormInputs = [
     errorMessage:
       "Password should be at least 8 characters and have 1 uppercase, 1 lowercase, a number and a special character.",
     label: "Password",
+    expression: regex.password,
     required: true,
   },
 ];
@@ -147,6 +151,7 @@ export const changePasswordInputs = [
     errorMessage:
       "Password should be at least 8 characters and have 1 uppercase, 1 lowercase, a number and a special character.",
     label: "Current Password",
+    expression: regex.password,
     required: true,
   },
   {
@@ -157,6 +162,7 @@ export const changePasswordInputs = [
     errorMessage:
       "Password should be at least 8 characters and have 1 uppercase, 1 lowercase, a number and a special character.",
     label: "New Password",
+    expression: regex.password,
     required: true,
   },
   {
@@ -167,6 +173,7 @@ export const changePasswordInputs = [
     errorMessage:
       "Password should be at least 8 characters and have 1 uppercase, 1 lowercase, a number and a special character.",
     label: "Confirm Password",
+    expression: regex.password,
     required: true,
   },
 ];

@@ -14,12 +14,12 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import { useAddRatingMutation } from "../store/api/booksApi";
 import Input from "../components/ui/Input";
 import Card from "../components/ui/Card";
 import { priceRange } from "./formStructure";
 import { useThunk } from "../hooks/useThunk";
 import { useDebounce } from "../hooks/useDebounce";
+import book from "../images/book1.jpg";
 
 let PageSize = 6;
 
@@ -79,7 +79,6 @@ export default function ShoppingList() {
   const cartResults = useGetCartQuery({}, { skip: !isLoggedIn });
 
   const [doAddToCart] = useAddToCartMutation();
-  const [doAddRating] = useAddRatingMutation();
 
   const navigate = useNavigate();
 
@@ -89,19 +88,6 @@ export default function ShoppingList() {
     setSearch("");
     setRating(0);
     return advancedFetchBooks(true);
-  };
-  const onRatingChange = async (e, rating, item) => {
-    if (!isLoggedIn) return navigate("/signin");
-    try {
-      await doAddRating({
-        book: item._id,
-        rating,
-      }).unwrap();
-      await advancedFetchBooks();
-      await showToast("Rating added!!!", "success");
-    } catch (err) {
-      showToast("Error adding rating", "error");
-    }
   };
 
   const addToCartHandler = async (item) => {
@@ -135,8 +121,8 @@ export default function ShoppingList() {
     return (
       <div className={classes["grid-item"]}>
         <div className={classes.header}>
-          <h1>{item.title}</h1>
-          <img className={classes.image} src={item.url} alt="" />
+          <h3>{item.title}</h3>
+          <img className={classes.image} src={book} alt="" />
         </div>
         <h4>Authors - {item.authors.join(", ")}</h4>
         <h4>Price - ${item.price}</h4>
@@ -145,13 +131,13 @@ export default function ShoppingList() {
             {" "}
             Add to Cart
           </Button>
-          <div>
-            <strong>Rating -</strong>{" "}
+          <div className={classes["item-rating"]}>
+            <strong>Rating - </strong>{" "}
             <Rating
               name="rating"
-              size="large"
+              size="small"
               value={item.averageRating}
-              onChange={(e, value) => onRatingChange(e, value, item)}
+              readOnly
             />
           </div>
         </div>
@@ -213,9 +199,6 @@ export default function ShoppingList() {
             </FormControl>
           </div>
           <div className={classes["filter-action"]}>
-            <Button onClick={advancedFetchBooks} success>
-              Search
-            </Button>
             <Button onClick={handleReset} danger>
               Reset
             </Button>

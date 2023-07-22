@@ -18,15 +18,14 @@ export default function Checkout() {
     cvv: "",
     expiry: "",
     address: "",
-    valid: false,
   });
 
   //Fake card token from gateway
   const getCardToken = () => Math.random().toString(36).substr(2);
 
   const handleOnSubmit = async (e) => {
-    console.log("called");
     e.preventDefault();
+    if (!formRef.current.checkValidity()) return;
     try {
       await doAddOrder({
         address: values.address,
@@ -68,9 +67,7 @@ export default function Checkout() {
         </h2>
         <form onSubmit={handleOnSubmit} ref={formRef}>
           {renderInputs}
-          <Button primary disabled={!values.valid}>
-            Make Payment
-          </Button>
+          <Button primary>Make Payment</Button>
         </form>
       </Card>
       <ToastContainer />

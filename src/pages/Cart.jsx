@@ -4,6 +4,7 @@ import Button from "../components/ui/Button";
 import classes from "./Cart.module.css";
 import { useToast } from "../hooks/useToast";
 import { useNavigate } from "react-router-dom";
+import book from "../images/book1.jpg";
 
 export default function Cart() {
   const { data, isFetching, error } = useGetCartQuery();
@@ -45,7 +46,7 @@ export default function Cart() {
             <h3>Quantity - {item.quantity}</h3>
           </div>
           <div className={classes["card-right"]}>
-            <img className={classes.image} src={item.book.url} alt="" />
+            <img className={classes.image} src={book} alt="" />
             <Button onClick={() => removeFromCartHandler(item)} danger>
               Remove from cart
             </Button>

@@ -81,3 +81,9 @@
   gap: 10px;
   align-items: center;
 }
+
+.item-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
